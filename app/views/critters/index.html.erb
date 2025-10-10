@@ -1,0 +1,11 @@
+<h1>Critters</h1>
+
+<h2>Fish</h2>
+<%= render partial: "critter", collection: @critters.select { |c| c.type == "Fish" } %>
+
+<h2>Insects</h2>
+<%= render partial: "critter", collection: @critters.select { |c| c.type == "Insect" } %>
+
+<h2>Sea Creatures</h2>
+<%= render partial: "critter", collection: @critters.select { |c| c.type == "SeaCreature" } %>
+
