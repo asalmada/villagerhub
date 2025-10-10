@@ -1,0 +1,27 @@
+<%= form_with model: fish do |form| %>
+  <%= render partial: "critters/form", locals: { form: form } %>
+
+  <div>
+    <%= form.label :spawn_location, "Spawn location" %>
+    <%= form.select :spawn_location, options_for_select(Fish.spawn_locations.map { |k,v| [v,k] }, form.object.spawn_location) %>
+  </div>
+
+  <div>
+    <%= form.label :shadow_size, "Shadow size" %>
+    <%= form.select :shadow_size, options_for_select(Fish.shadow_sizes.map { |k,v| [v,k] }, form.object.shadow_size) %>
+  </div>
+
+  <div>
+    <%= form.label :visual_width, "Visual width" %>
+    <%= form.select :visual_width, options_for_select(Fish.visual_widths.map { |k,v| [v,k] }, form.object.visual_width) %>
+  </div>
+
+  <div>
+    <%= form.label :catch_difficulty, "Catch difficulty" %>
+    <%= form.select :catch_difficulty, options_for_select(Fish.catch_difficulties.map { |k,v| [v,k] }, form.object.catch_difficulty) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

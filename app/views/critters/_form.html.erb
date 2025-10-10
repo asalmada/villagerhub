@@ -1,0 +1,42 @@
+<div>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</div>
+
+<div>
+  <%= form.label :sell_price, "Sell price" %>
+  <%= form.number_field :sell_price, step: 1, min: 0 %>
+</div>
+
+<div>
+  <%= form.label :furniture_size, "Furniture size" %>
+  <%= form.select :furniture_size,
+        options_for_select(
+          if form.object.is_a?(Insect)
+            [["1x1", "one_by_one"]]
+          else
+            Critter.furniture_sizes.map { |k,v| [v,k] }
+          end,
+          form.object.furniture_size
+        ) %>
+</div>
+
+<div>
+  <%= form.label :furniture_has_surface, "Does furniture have a surface?" %>
+  <%= form.check_box :furniture_has_surface %>
+</div>
+
+<div>
+  <%= form.label :description, "Description" %>
+  <%= form.text_area :description %>
+</div>
+
+<div>
+  <%= form.label :catch_phrase, "Catch phrase" %>
+  <%= form.text_field :catch_phrase %>
+</div>
+
+<div>
+  <%= form.label :catches_to_unlock, "Catches to unlock" %>
+  <%= form.number_field :catches_to_unlock, step: 1, min: 0 %>
+</div>

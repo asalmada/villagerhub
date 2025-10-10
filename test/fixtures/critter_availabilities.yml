@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  critter: one
+  hemisphere: MyString
+  start_minute: 1
+  end_minute: 1
+  all_day: false
+
+two:
+  critter: two
+  hemisphere: MyString
+  start_minute: 1
+  end_minute: 1
+  all_day: false

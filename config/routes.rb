@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "critters#index"
+
+  # Critterpedia resources
+  resources :critters, only: [ :index, :show ]
+  resources :fish
+  resources :insects
+  resources :sea_creatures
 end

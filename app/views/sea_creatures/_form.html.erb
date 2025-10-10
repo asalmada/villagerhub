@@ -1,0 +1,12 @@
+<%= form_with model: sea_creature do |form| %>
+  <%= render partial: "critters/form", locals: { form: form } %>
+
+  <div>
+    <%= form.label :movement_speed, "Movement speed" %>
+    <%= form.select :movement_speed, options_for_select(SeaCreature.movement_speeds.map { |k,v| [v,k] }, form.object.movement_speed) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

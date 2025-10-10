@@ -1,0 +1,17 @@
+<%= form_with model: insect do |form| %>
+  <%= render partial: "critters/form", locals: { form: form } %>
+
+  <div>
+    <%= form.label :spawn_location, "Spawn location" %>
+    <%= form.select :spawn_location, options_for_select(Insect.spawn_locations.map { |k,v| [v,k] }, form.object.spawn_location) %>
+  </div>
+
+  <div>
+    <%= form.label :spawn_weather, "Spawn weather" %>
+    <%= form.select :spawn_weather, options_for_select(Insect.spawn_weathers.map { |k,v| [v,k] }, form.object.spawn_weather) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
