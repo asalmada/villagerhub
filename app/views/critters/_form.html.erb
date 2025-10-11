@@ -4,6 +4,11 @@
 </div>
 
 <div>
+  <%= form.label :entry_id, "Entry ID" %>
+  <%= form.text_field :entry_id %>
+</div>
+
+<div>
   <%= form.label :sell_price, "Sell price" %>
   <%= form.number_field :sell_price, step: 1, min: 0 %>
 </div>
@@ -40,3 +45,27 @@
   <%= form.label :catches_to_unlock, "Catches to unlock" %>
   <%= form.number_field :catches_to_unlock, step: 1, min: 0 %>
 </div>
+
+<div>
+  <%= form.fields_for :availabilities do |a| %>
+    <div class="availability">
+      <%= a.label :month %>
+      <%= a.number_field :month, min: 1, max: 12 %>
+
+      <%= a.label :hemisphere %>
+      <%= a.select :hemisphere, CritterAvailability.hemispheres.map { |k,v| [v,k] } %>
+
+      <%= a.label :all_day %>
+      <%= a.check_box :all_day %>
+
+      <%= a.label :start_minute %>
+      <%= a.number_field :start_minute, step: 1, min: 0, max: 1439 %>
+
+      <%= a.label :end_minute %>
+      <%= a.number_field :end_minute, step: 1, min: 0, max: 1439 %>
+
+      <%= a.check_box :_destroy %>
+      <%= a.label :_destroy, "Remove this availability" %>
+    </div>
+<div>
+<% end %>

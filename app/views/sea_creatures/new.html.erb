@@ -1,5 +1,4 @@
 <h1>New sea creature register</h1>
 
-<%= form_with model: @sea_creature do |form| %>
-  <%= render "form", sea_creature: @sea_creature %>
-<% end %>
+<%= render "form", sea_creature: @sea_creature %>
+<%= link_to "Cancel", sea_creatures_path %>

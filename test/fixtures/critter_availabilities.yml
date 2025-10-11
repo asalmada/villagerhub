@@ -4,13 +4,13 @@
 #
 #  id           :integer          not null, primary key
 #  critter_id   :integer          not null
-#  hemisphere   :string
+#  hemisphere   :string           not null
 #  start_minute :integer
 #  end_minute   :integer
-#  all_day      :boolean
+#  all_day      :boolean          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  month        :integer
+#  month        :integer          not null
 #
 # Indexes
 #

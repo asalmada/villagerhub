@@ -1,4 +1,5 @@
 class FishController < ApplicationController
+  include CritterParams
   before_action :set_fish, only: %i[ show edit update destroy ]
 
   def index
@@ -10,6 +11,7 @@ class FishController < ApplicationController
 
   def new
     @fish = Fish.new
+    @fish.availabilities.build
   end
 
   def create
@@ -22,6 +24,7 @@ class FishController < ApplicationController
   end
 
   def edit
+    @fish.availabilities.build if @fish.availabilities.empty?
   end
 
   def update
@@ -43,13 +46,7 @@ class FishController < ApplicationController
   end
   def fish_params
     params.require(:fish).permit(
-      :name,
-      :sell_price,
-      :furniture_size,
-      :furniture_has_surface,
-      :description,
-      :catch_phrase,
-      :catches_to_unlock,
+      *permitted_critter_params,
       :spawn_location,
       :shadow_size,
       :visual_width,

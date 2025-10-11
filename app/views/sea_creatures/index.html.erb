@@ -1,0 +1,11 @@
+<h1>Sea Creatures</h1>
+
+<%= link_to "New sea creature", new_sea_creature_path %>
+
+<div>
+  <% @sea_creatures.each do |sea_creature| %>
+    <div>
+      <%= link_to sea_creature.name, sea_creature %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,4 @@
 <h1>New insect register</h1>
 
-<%= form_with model: @insect do |form| %>
-  <%= render "form", insect: @insect %>
-<% end %>
+<%= render "form", insect: @insect %>
+<%= link_to "Cancel", insects_path %>

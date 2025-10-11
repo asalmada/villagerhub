@@ -1,0 +1,11 @@
+<h1>Insects</h1>
+
+<%= link_to "New insect", new_insect_path %>
+
+<div>
+  <% @insects.each do |insect| %>
+    <div>
+      <%= link_to insect.name, insect %>
+    </div>
+  <% end %>
+</div>

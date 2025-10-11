@@ -4,13 +4,13 @@
 #
 #  id           :integer          not null, primary key
 #  critter_id   :integer          not null
-#  hemisphere   :string
+#  hemisphere   :string           not null
 #  start_minute :integer
 #  end_minute   :integer
-#  all_day      :boolean
+#  all_day      :boolean          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  month        :integer
+#  month        :integer          not null
 #
 # Indexes
 #
@@ -20,10 +20,13 @@
 class CritterAvailability < ApplicationRecord
   belongs_to :critter
 
-  enum :hemisphere, { northern: "northern", southern: "southern" }
+  enum :hemisphere, {
+    northern: "Northern",
+    southern: "Southern"
+  }, prefix: true
 
   validates :hemisphere, presence: true, inclusion: { in: hemispheres.keys }
-  validates :months, presence: true
+  validates :month, inclusion: { in: 1..12 }, presence: true
   validates :start_minute, numericality: { greater_than_or_equal_to: 0, less_than: 24*60 }, unless: :all_day
   validates :end_minute, numericality: { greater_than_or_equal_to: 0, less_than: 24*60 }, unless: :all_day
 

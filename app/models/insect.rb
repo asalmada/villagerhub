@@ -3,22 +3,27 @@
 # Table name: critters
 #
 #  id                    :integer          not null, primary key
-#  name                  :string
-#  sell_price            :integer
-#  furniture_size        :integer
-#  furniture_has_surface :boolean
-#  description           :text
-#  catch_phrase          :string
+#  name                  :string           not null
+#  sell_price            :integer          not null
+#  furniture_size        :integer          not null
+#  furniture_has_surface :boolean          not null
+#  description           :text             not null
+#  catch_phrase          :string           not null
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  spawn_location        :string
 #  spawn_weather         :string
-#  catches_to_unlock     :integer
+#  catches_to_unlock     :integer          not null
 #  shadow_size           :string
 #  catch_difficulty      :string
 #  visual_width          :string
 #  movement_speed        :string
 #  type                  :string
+#  entry_id              :string           not null
+#
+# Indexes
+#
+#  index_critters_on_entry_id  (entry_id) UNIQUE
 #
 
 class Insect < Critter
@@ -48,12 +53,12 @@ class Insect < Critter
     shaking_trees: "Shaking trees",
     shaking_trees_hardword_cedar: "Shaking trees (hardwood or cedar only)",
     underground: "Underground (dig where noise is loudest)"
-  }
+  }, prefix: true
   enum :spawn_weather, {
     any_expect_rain: "Any (expect rain)",
     rain_only: "Rain only",
     any: "Any"
-  }
+  }, prefix: true
 
   validates :spawn_location, presence: true
   validates :spawn_weather, presence: true, inclusion: { in: spawn_weathers.keys }
