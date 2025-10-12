@@ -1,8 +1,6 @@
 - Critters
 	- Entender o spawn rates para incluir.
 	- ActionStorage para as imagens.
-	- Adicionar unique id do CSV
-	- Add auth
 	- Admin scope (namespace)
 	- Change DB to PSQL
 	- Deploy

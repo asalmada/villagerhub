@@ -1,6 +1,7 @@
 class InsectsController < ApplicationController
   include CritterParams
   before_action :set_insect, only: %i[ show edit update destroy ]
+  allow_unauthenticated_access only: %i[ index show ]
 
   def index
     @insects = Insect.all

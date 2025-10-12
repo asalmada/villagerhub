@@ -1,4 +1,8 @@
-<h1><%= @sea_creature.name %></h1>
+<%= render "critters/details", critter: @sea_creature %>
+<p><strong>Movement speed</strong> <%= @sea_creature.movement_speed %></p>
 
 <%= link_to "Back", sea_creatures_path %>
-<%= link_to "Edit", edit_sea_creature_path(@sea_creature) %>
+<%if authenticated?%>
+  <%= link_to "Edit", edit_sea_creature_path(@sea_creature) %>
+  <%= button_to "Delete", @sea_creature, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<%end%>

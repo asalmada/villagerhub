@@ -1,6 +1,7 @@
 class FishController < ApplicationController
   include CritterParams
   before_action :set_fish, only: %i[ show edit update destroy ]
+  allow_unauthenticated_access only: %i[ index show ]
 
   def index
     @fish = Fish.all

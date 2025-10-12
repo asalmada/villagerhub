@@ -1,4 +1,11 @@
-<h1><%= @fish.name %></h1>
+<%= render "critters/details", critter: @fish %>
+<p><strong>Spawn location</strong> <%= @fish.spawn_location %></p>
+<p><strong>Shadow size</strong> <%= @fish.shadow_size %></p>
+<p><strong>Visual width</strong> <%= @fish.visual_width %></p>
+<p><strong>Catch difficulty</strong> <%= @fish.catch_difficulty %></p>
 
 <%= link_to "Back", fish_index_path %>
-<%= link_to "Edit", edit_fish_path(@fish) %>
+<% if authenticated? %>
+  <%= link_to "Edit", edit_fish_path(@fish) %>
+  <%= button_to "Delete", @fish, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<%end%>

@@ -5,7 +5,7 @@
 #  id                    :integer          not null, primary key
 #  name                  :string           not null
 #  sell_price            :integer          not null
-#  furniture_size        :integer          not null
+#  furniture_size        :string
 #  furniture_has_surface :boolean          not null
 #  description           :text             not null
 #  catch_phrase          :string           not null

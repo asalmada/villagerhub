@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_11_221939) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_12_030122) do
   create_table "critter_availabilities", force: :cascade do |t|
     t.integer "critter_id", null: false
     t.string "hemisphere", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_11_221939) do
   create_table "critters", force: :cascade do |t|
     t.string "name", null: false
     t.integer "sell_price", null: false
-    t.integer "furniture_size", null: false
+    t.string "furniture_size"
     t.boolean "furniture_has_surface", null: false
     t.text "description", null: false
     t.string "catch_phrase", null: false
@@ -44,5 +44,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_11_221939) do
     t.index ["entry_id"], name: "index_critters_on_entry_id", unique: true
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+  end
+
   add_foreign_key "critter_availabilities", "critters"
+  add_foreign_key "sessions", "users"
 end

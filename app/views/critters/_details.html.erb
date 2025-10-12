@@ -1,0 +1,27 @@
+<div class="critter-details">
+  <h1><%= critter.name %></h1>
+
+  <p><strong>Entry ID</strong> <%= critter.entry_id %></p>
+  <p><strong>Sell price</strong> <%= critter.sell_price %> bells</p>
+  <p><strong>Furniture size</strong> <%= critter.furniture_size %></p>
+  <p><strong>Furniture has size</strong> <%= critter.furniture_has_surface %></p>
+  <p><strong>Description</strong> <%= critter.description %></p>
+  <p><strong>Catch_phrase</strong> <%= critter.catch_phrase %></p>
+  <p><strong>Catches to unlock</strong> <%= critter.catches_to_unlock %></p>
+
+  <% if critter.availabilities.present? %>
+    <h3>Availability</h3>
+    <ul>
+      <% critter.availabilities.each do |a| %>
+        <li>
+          <%= a.month %> - <%= a.hemisphere.capitalize %>
+          <% unless a.all_day? %>
+            (<%= a.start_minute %> → <%= a.end_minute %>)
+          <% else %>
+            (All day)
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

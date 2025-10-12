@@ -1,4 +1,9 @@
-<h1><%= @insect.name %></h1>
+<%= render "critters/details", critter: @insect %>
+<p><strong>Spawn location</strong> <%= @insect.spawn_location %></p>
+<p><strong>Spawn weather</strong> <%= @insect.spawn_weather %></p>
 
 <%= link_to "Back", insects_path %>
-<%= link_to "Edit", edit_insect_path(@insect) %>
+<% if authenticated? %>
+  <%= link_to "Edit", edit_insect_path(@insect) %>
+  <%= button_to "Delete", @insect, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<%end%>
