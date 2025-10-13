@@ -46,4 +46,6 @@
   <% end %>
 
   <%= link_to "Back", back_path %>
+  <%= link_to "Edit", edit_path %>
+  <%= button_to "Delete", delete_path, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 </div>

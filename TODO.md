@@ -5,3 +5,4 @@
 	- Change DB to PSQL
 	- Deploy
 	- TurboFrame para availabilities dinâmico.
+	- Compartilhar codigo entre admin e non-admin (pasta shared)

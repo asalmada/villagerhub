@@ -1,0 +1,17 @@
+<h1>Critterpedia</h1>
+
+<h2>
+  <%= link_to "Fish", admin_fish_index_path %>
+</h2>
+<%= render partial: "admin/critters/card", collection: @critters.select { |c| c.type == "Fish" }, as: :critter %>
+
+<h2>
+  <%= link_to "Insects", admin_insects_path %>
+</h2>
+<%= render partial: "admin/critters/card", collection: @critters.select { |c| c.type == "Insect" }, as: :critter %>
+
+<h2>
+  <%= link_to "Sea Creatures", admin_sea_creatures_path %>
+</h2>
+<%= render partial: "admin/critters/card", collection: @critters.select { |c| c.type == "SeaCreature" }, as: :critter %>
+

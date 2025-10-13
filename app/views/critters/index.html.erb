@@ -3,15 +3,15 @@
 <h2>
   <%= link_to "Fish", fish_index_path %>
 </h2>
-<%= render partial: "card", collection: @critters.select { |c| c.type == "Fish" }, as: :critter %>
+<%= render partial: "critters/card", collection: @critters.select { |c| c.type == "Fish" }, as: :critter %>
 
 <h2>
   <%= link_to "Insects", insects_path %>
 </h2>
-<%= render partial: "card", collection: @critters.select { |c| c.type == "Insect" }, as: :critter %>
+<%= render partial: "critters/card", collection: @critters.select { |c| c.type == "Insect" }, as: :critter %>
 
 <h2>
   <%= link_to "Sea Creatures", sea_creatures_path %>
 </h2>
-<%= render partial: "card", collection: @critters.select { |c| c.type == "SeaCreature" }, as: :critter %>
+<%= render partial: "critters/card", collection: @critters.select { |c| c.type == "SeaCreature" }, as: :critter %>
 

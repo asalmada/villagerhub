@@ -1,4 +1,4 @@
-module CritterParams
+module Admin::CritterParams
   extend ActiveSupport::Concern
 
   private

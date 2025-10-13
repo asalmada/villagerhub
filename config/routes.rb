@@ -15,9 +15,16 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "critters#index"
 
-  # Critterpedia resources
-  resources :critters, only: [ :index, :show ]
-  resources :fish
-  resources :insects
-  resources :sea_creatures
+  resources :critters, only: [ :index ]
+  resources :fish, only: [ :index, :show ]
+  resources :insects, only: [ :index, :show ]
+  resources :sea_creatures, only: [ :index, :show ]
+
+  namespace :admin do
+    root "critters#index"
+    resources :critters, only: [ :index ]
+    resources :fish
+    resources :insects
+    resources :sea_creatures
+  end
 end

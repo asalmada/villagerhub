@@ -1,5 +1,5 @@
-<%= form_with model: sea_creature do |form| %>
-  <%= render partial: "critters/form", locals: { form: form } %>
+<%= form_with model: [:admin, sea_creature] do |form| %>
+  <%= render partial: "admin/critters/form_fields", locals: { form: form } %>
 
   <div>
     <%= form.label :movement_speed, "Movement speed" %>

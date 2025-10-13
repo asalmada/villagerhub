@@ -1,5 +1,5 @@
-<%= form_with model: insect do |form| %>
-  <%= render partial: "critters/form", locals: { form: form } %>
+<%= form_with model: [:admin, insect] do |form| %>
+  <%= render partial: "admin/critters/form_fields", locals: { form: form } %>
 
   <div>
     <%= form.label :spawn_location, "Spawn location" %>

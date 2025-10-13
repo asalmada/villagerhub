@@ -1,0 +1,11 @@
+<h1>Fish</h1>
+
+<%= link_to "New fish", new_admin_fish_path %>
+
+<div>
+  <% @fish.each do |fish| %>
+    <div>
+      <%= link_to fish.name, admin_fish_path(fish) %>
+    </div>
+  <% end %>
+</div>
