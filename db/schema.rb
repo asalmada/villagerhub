@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_10_12_030122) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "critter_availabilities", force: :cascade do |t|
     t.integer "critter_id", null: false
     t.string "hemisphere", null: false
