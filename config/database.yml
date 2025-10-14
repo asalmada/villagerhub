@@ -7,15 +7,26 @@ default: &default
   host: <%= ENV.fetch("PGHOST") { "localhost" } %>
 
 development:
-  <<: *default
-  database: villagerhub_development
+  primary:
+    <<: *default
+    database: villagerhub_development
+  cable:
+    <<: *default
+    database: villagerhub_development_cable
 
 test:
-  <<: *default
-  database: villagerhub_test
+  primary:
+    <<: *default
+    database: villagerhub_test
+  cable:
+    <<: *default
+    database: villagerhub_test_cable
 
 production:
-  <<: *default
-  database: villagerhub_production
-  username: <%= ENV["PGUSER"] %>
-  password: <%= ENV["PGPASSWORD"] %>
+  primary:
+    url: <%= ENV["DATABASE_URL"] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
