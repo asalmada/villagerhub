@@ -2,6 +2,15 @@
   <h1><%= critter.name %></h1>
 
   <p><strong>Entry ID</strong> <%= critter.entry_id %></p>
+  <div>
+    <%= image_tag critter.icon_image if critter.icon_image.attached? %>
+  </div>
+  <div>
+    <%= image_tag critter.critterpedia_image if critter.critterpedia_image.attached?  %>
+  </div>
+  <div>
+    <%= image_tag critter.furniture_image if critter.furniture_image.attached? %>
+  </div>
   <p><strong>Sell price</strong> <%= critter.sell_price %> bells</p>
   <p><strong>Furniture size</strong> <%= critter.furniture_size %></p>
   <p><strong>Furniture has size</strong> <%= critter.furniture_has_surface %></p>

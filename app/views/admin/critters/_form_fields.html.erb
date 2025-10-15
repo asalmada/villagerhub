@@ -14,6 +14,21 @@
 </div>
 
 <div>
+  <%= form.label :icon_image, "Icon image" %>
+  <%= form.file_field :icon_image %>
+</div>
+
+<div>
+  <%= form.label :critterpedia_image, "Critterpedia image" %>
+  <%= form.file_field :critterpedia_image %>
+</div>
+
+<div>
+  <%= form.label :furniture_image, "Furniture image" %>
+  <%= form.file_field :furniture_image %>
+</div>
+
+<div>
   <%= form.label :furniture_size, "Furniture size" %>
   <%= form.select :furniture_size,
         options_for_select(

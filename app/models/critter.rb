@@ -38,6 +38,10 @@ class Critter < ApplicationRecord
   has_many :availabilities, class_name: "CritterAvailability", dependent: :destroy
   accepts_nested_attributes_for :availabilities, allow_destroy: true
 
+  has_one_attached :icon_image
+  has_one_attached :critterpedia_image
+  has_one_attached :furniture_image
+
   validates :name, presence: true, uniqueness: true
   validates :type, presence: true, inclusion: { in: %w[Fish Insect SeaCreature] }
   validates :sell_price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
