@@ -27,4 +27,8 @@ Rails.application.routes.draw do
     resources :insects
     resources :sea_creatures
   end
+
+  if Rails.env.development?
+    mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
+  end
 end

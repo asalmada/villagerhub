@@ -29,7 +29,7 @@
 class Insect < Critter
   enum :spawn_location, {
     disguised_on_shoreline: "Disguised on shoreline",
-    disguised_under_tree: "Disguised under trees",
+    disguised_under_trees: "Disguised under trees",
     flying: "Flying",
     flying_near_blue_purple_black_flowers: "Flying near blue/purple/black flowers",
     flying_near_flowers: "Flying near flowers",
