@@ -1,14 +1,14 @@
 require "csv"
 module Maintenance
-  class ImportInsectsTask < MaintenanceTasks::Task
-    DATA_FILE = Rails.root.join("db/data/insects.csv").freeze
+  class ImportFishTask < MaintenanceTasks::Task
+    DATA_FILE = Rails.root.join("db/data/fish.csv").freeze
 
     def collection
       read_csv
     end
 
     def process(row)
-      importer ||= InsectImporter.new
+      importer ||= FishImporter.new
       importer.import_row(row)
     end
 
