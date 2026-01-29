@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sell_price: 1
+  spawn_probability: 1
+  furniture_size: 1
+  furniture_has_surface: false
+  description: MyText
+  catch_phrase: MyString
+
+two:
+  name: MyString
+  sell_price: 1
+  spawn_probability: 1
+  furniture_size: 1
+  furniture_has_surface: false
+  description: MyText
+  catch_phrase: MyString

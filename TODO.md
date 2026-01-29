@@ -1,0 +1,3 @@
+- Critters
+	- Entender o spawn rates para incluir.
+	- ActionStorage para as imagens.

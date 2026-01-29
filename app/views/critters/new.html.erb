@@ -1,0 +1,77 @@
+<h1>New critter</h1>
+
+<%= form_with model: @critter do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :type, "Type" %>
+    <%= form.select :type, options_for_select([
+        ["Insect", "Insect"],
+        ["Fish", "Fish"],
+        ["Sea Creature", "SeaCreature"]
+      ], @critter.type),
+      prompt: "Select a type",
+    required: true %>
+  </div>
+
+  <div>
+    <%= form.label :sell_price, "Sell price" %>
+    <%= form.number_field :sell_price, step: 1, min: 0 %>
+  </div>
+
+  <div>
+    <%= form.label :furniture_size, "Furniture size" %>
+    <%= form.select :furniture_size, options_for_select(Critter.furniture_sizes.map { |k,v| [v,k] }, @critter.furniture_size) %>
+  </div>
+
+  <div>
+    <%= form.label :furniture_has_surface, "Does furniture have a surface?" %>
+    <%= form.check_box :furniture_has_surface %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :catch_phrase, "Catch phrase" %>
+    <%= form.text_field :catch_phrase %>
+  </div>
+
+  <div>
+    <%= form.label :catches_to_unlock, "Catches to unlock" %>
+    <%= form.number_field :catches_to_unlock, step: 1, min: 0 %>
+  </div>
+
+  <div>
+    <%= form.label :spawn_location, "Spawn location" %>
+    <%= form.select :spawn_location,
+        options_for_select(Fish.spawn_locations.map { |k,v| [v,k] }, @critter.spawn_location) %>
+  </div>
+
+  <div>
+    <%= form.label :shadow_size, "Shadow size" %>
+    <%= form.select :shadow_size,
+        options_for_select(Fish.shadow_sizes.map { |k,v| [v,k] }, @critter.shadow_size) %>
+  </div>
+
+  <div>
+    <%= form.label :visual_width, "Visual width" %>
+    <%= form.select :visual_width,
+        options_for_select(Fish.visual_widths.map { |k,v| [v,k] }, @critter.visual_width) %>
+  </div>
+
+  <div>
+    <%= form.label :catch_difficulty, "Catch difficulty" %>
+    <%= form.select :catch_difficulty,
+        options_for_select(Fish.catch_difficulties.map { |k,v| [v,k] }, @critter.catch_difficulty) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
